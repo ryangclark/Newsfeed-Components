@@ -57,13 +57,14 @@ class ArticleCreator {
     this.body.textContent = articleContent.body;
     this.articleDiv.appendChild(this.body);
     // Create buttons
-    this.expandButton = document.createElement('button');
+    this.expandButton = document.createElement('span');
     this.expandButton.classList.add('expandButton');
     this.expandButton.textContent = 'expand';
     this.expandButton.addEventListener('click', () => this.expandArticle());
     this.articleDiv.appendChild(this.expandButton);
-    this.closeButton = document.createElement('button');
-    this.closeButton.classList.add('closeButton hidden');
+    this.closeButton = document.createElement('span');
+    this.closeButton.classList.add('closeButton');
+    this.closeButton.classList.add('hidden');
     this.closeButton.textContent = 'close';
     this.closeButton.addEventListener('click', () => this.expandArticle());
     this.articleDiv.appendChild(this.closeButton);
@@ -77,10 +78,13 @@ class ArticleCreator {
 }
 // object with content for new article
 const articleContent = {hed: 'Generating Components from Objects', date: 'May 20, 2009', body: 'We can use a class to generate components without manually writing any HTML. It\'s pretty neat and I\'d recommend trying it out.\nThe annoying thing I\'m dealing with right now is escaping all of the apostrophes I\'m using in the contractions.'};
+const articleContentTwo = {hed: 'Generating Components from Objects', date: 'May 20, 2009', body: 'We can use a class to generate components without manually writing any HTML. It\'s pretty neat and I\'d recommend trying it out.\nThe annoying thing I\'m dealing with right now is escaping all of the apostrophes I\'m using in the contractions.'};
 
 // Create the new article using the Article Creator class
 const newArticle = new ArticleCreator(articleContent);
+const newArticleTwo = new ArticleCreator(articleContent);
 // Add it to div.articles
 const divArticles = document.querySelector('.articles');
 divArticles.appendChild(newArticle.articleDiv);
+divArticles.appendChild(newArticleTwo.articleDiv);
 // console.log(newArticle.articleDiv);
